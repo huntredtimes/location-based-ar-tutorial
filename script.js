@@ -44,7 +44,7 @@ window.onload = () => {
                     const latitude = place.location.lat;
                     const longitude = place.location.lng;
 
-                    // add place name
+                  /*  // add place name
                     const placeText = document.createElement('a-link');
                     placeText.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
                     placeText.setAttribute('title', place.name);
@@ -52,9 +52,10 @@ window.onload = () => {
                     
                     placeText.addEventListener('loaded', () => {
                         window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))
-                    });
+                    }); 
 
-                    scene.appendChild(placeText);
+                    scene.appendChild(placeText);*/
+                    <a-entity gltf-model="./magnemite/scene.gltf" rotation="0 180 0" scale="0.15 0.15 0.15" gps-entity-place="longitude: longitude; latitude: 41.latitude;" animation-mixer/>
                 });
             })
     },
