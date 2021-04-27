@@ -16,7 +16,7 @@ function loadPlaces(position) {
         &radius=${params.radius}
         &client_id=${params.clientId}
         &client_secret=${params.clientSecret}
-        &limit=30 
+        &limit=1
         &v=${params.version}`;
     return fetch(endpoint)
         .then((res) => {
@@ -30,6 +30,8 @@ function loadPlaces(position) {
         })
 };
 
+const latitudeVar;
+const longitudeVar;
 
 window.onload = () => {
     const scene = document.querySelector('a-scene');
@@ -44,6 +46,9 @@ window.onload = () => {
                     const latitude = place.location.lat;
                     const longitude = place.location.lng;
 
+                    latitudeVar = latitude;
+                    longitudeVar = longitude;
+
                   /*  // add place name
                     const placeText = document.createElement('a-link');
                     placeText.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
@@ -55,7 +60,7 @@ window.onload = () => {
                     }); 
 
                     scene.appendChild(placeText);*/
-                    <a-entity gltf-model="./magnemite/scene.gltf" rotation="0 180 0" scale="0.15 0.15 0.15" gps-entity-place="longitude: longitude; latitude: 41.latitude;" animation-mixer/>
+                     
                 });
             })
     },
